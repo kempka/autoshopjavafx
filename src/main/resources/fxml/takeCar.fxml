@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1400.0" prefHeight="900.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.java2017.autoshop.controllers.TakeCarController">
+    <children>
+        <AnchorPane prefHeight="24.0" prefWidth="560.0">
+            <children>
+                <Label fx:id="labelTakeCar" layoutX="-10.0" layoutY="-10.0" prefHeight="75.0" prefWidth="1360.0" style="-fx-background-color: #15D5B4;" text="Прием машины на склад" AnchorPane.leftAnchor="-10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="-16.0">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+                </Label>
+            <ImageView fitHeight="67.0" fitWidth="200.0" layoutX="1175.0" layoutY="-12.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="170.0">
+               <image>
+                  <Image url="@../images/Cbwn.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="150.0" layoutX="1020.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="20.0">
+               <image>
+                  <Image url="@../images/jurgen.png" />
+               </image>
+            </ImageView>
+            </children>
+            <opaqueInsets>
+                <Insets bottom="20.0" left="20.0" right="20.0" />
+            </opaqueInsets>
+            <VBox.margin>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </VBox.margin>
+        </AnchorPane>
+        <AnchorPane prefHeight="5.0" prefWidth="600.0">
+            <children>
+                <Separator layoutX="10.0" prefHeight="5.0" prefWidth="1195.0" />
+            </children>
+        </AnchorPane>
+        <AnchorPane prefHeight="164.0" prefWidth="1400.0">
+            <children>
+            <Separator layoutX="6.0" layoutY="-3.0" orientation="VERTICAL" prefHeight="153.0" prefWidth="11.0" />
+            <Separator layoutX="1201.0" layoutY="-3.0" orientation="VERTICAL" prefHeight="153.0" prefWidth="11.0" />
+            <Separator layoutX="10.0" layoutY="150.0" prefWidth="1195.0" />
+                <Label fx:id="labelCar" layoutX="20.0" text="Марка автомобиля">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="comboMarkAuto" layoutX="20.0" layoutY="20.0" prefWidth="150.0" />
+                <Label fx:id="labelTypeCar" layoutX="190.0" text="Тип автомобиля">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="comboTypeCar" layoutX="190.0" layoutY="20.0" prefWidth="150.0" />
+                <Label fx:id="labelModelCar" layoutX="360.0" text="Модель автомобиля">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="comboModelCar" layoutX="360.0" layoutY="20.0" prefWidth="150.0" />
+                <Label fx:id="labelColorCar" layoutX="530.0" text="Цвет">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="comboColorCar" layoutX="530.0" layoutY="20.0" prefWidth="150.0" />
+                <Label fx:id="labelKPP" layoutX="1040.0" text="Тип КПП">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="comboCPP" layoutX="1040.0" layoutY="20.0" prefWidth="150.0" />
+                <Label fx:id="labelConditCar" layoutX="870.0" text="Состояние">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="comboConditCar" layoutX="870.0" layoutY="20.0" prefWidth="150.0" />
+                <Label fx:id="labelDriveCar" layoutX="700.0" text="Привод">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="comboDriveCar" layoutX="700.0" layoutY="20.0" prefWidth="150.0" />
+                <Label fx:id="labelVCar" layoutX="700.0" layoutY="90.0" text="Объем двигателя (л)">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="textVCar" layoutX="700.0" layoutY="110.0" prefHeight="24.0" prefWidth="150.0" />
+            <Label fx:id="labelPrice" layoutX="1040.0" layoutY="90.0" text="Цена">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="textPrice" layoutX="1040.0" layoutY="110.0" prefHeight="24.0" prefWidth="150.0" />
+            <Label fx:id="labelYear" layoutX="870.0" layoutY="90.0" text="Год выпуска">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="textYear" layoutX="870.0" layoutY="110.0" prefHeight="24.0" prefWidth="150.0" />
+            <Label fx:id="labelDiscript" layoutX="20.0" layoutY="90.0" text="Описание" AnchorPane.leftAnchor="20.0" />
+            <TextField fx:id="textDescript" layoutX="20.0" layoutY="110.0" prefHeight="24.0" prefWidth="665.0" AnchorPane.leftAnchor="20.0" />
+                <Button fx:id="buttonTakeCar" layoutX="1220.0" layoutY="-4.0" mnemonicParsing="false" onAction="#onClickMethod" prefHeight="40.0" prefWidth="150.0" text="Принять на склад" textAlignment="CENTER" textFill="#da082b" AnchorPane.leftAnchor="1220.0" AnchorPane.rightAnchor="30.0">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Button>
+                <Button fx:id="buttonReviewTable" layoutX="1220.0" layoutY="53.0" mnemonicParsing="false" onAction="#clickReview" prefHeight="40.0" prefWidth="150.0" text="Обновить таблицу" AnchorPane.leftAnchor="1220.0" AnchorPane.rightAnchor="30.0">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Button>
+            <Button fx:id="buttonExit" cancelButton="true" layoutX="1220.0" layoutY="108.0" mnemonicParsing="false" onAction="#clickExit" prefHeight="40.0" prefWidth="150.0" text="Выйти" AnchorPane.leftAnchor="1220.0" AnchorPane.rightAnchor="30.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            </children>
+        </AnchorPane>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <children>
+                <TableView fx:id="tableTakeCar" fixedCellSize="0.0" layoutX="10.0" prefHeight="590.0" prefWidth="1360.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="30.0">
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                </TableView>
+            </children>
+        </AnchorPane>
+        <HBox prefHeight="35.0" prefWidth="1400.0">
+            <children>
+                <Label fx:id="labelCount" text="Количество записей:">
+                    <HBox.margin>
+                        <Insets bottom="20.0" left="10.0" right="20.0" top="20.0" />
+                    </HBox.margin>
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+                </Label>
+            <Label fx:id="labelNumber" text="0">
+               <HBox.margin>
+                  <Insets bottom="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            </children>
+        </HBox>
+    </children>
+</VBox>
