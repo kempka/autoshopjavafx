@@ -34,7 +34,8 @@ public class Main extends Application {
             stage.initStyle(StageStyle.TRANSPARENT); // без обрамления
             stage.show();
 
-            PauseTransition delay = new PauseTransition(Duration.seconds(3));   // заставка запустится на 3 секунды
+            // заставка запустится на 3 секунды
+            PauseTransition delay = new PauseTransition(Duration.seconds(3));
             delay.setOnFinished(event -> {
                 stage.close();
                 showMainStage();
