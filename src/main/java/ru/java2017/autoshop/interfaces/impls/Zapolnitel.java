@@ -37,7 +37,49 @@ public class Zapolnitel {
         resultSet = baseConnect.getResultSet();
         for (int i = 0; i < resultSet.getMetaData().getColumnCount(); i++) {
             final int j = i;
-            TableColumn col = new TableColumn(resultSet.getMetaData().getColumnName(i + 1));
+
+            // переименование колонок
+            String columnRename = resultSet.getMetaData().getColumnName(i + 1);
+            switch (columnRename) {
+                case "id_car":
+                    columnRename = "ID";
+                    break;
+                case "id_car_type":
+                    columnRename = "Тип";
+                    break;
+                case "id_model":
+                    columnRename = "Модель";
+                    break;
+                case "id_transmission":
+                    columnRename = "КПП";
+                    break;
+                case "id_privod":
+                    columnRename = "Привод";
+                    break;
+                case "capasity":
+                    columnRename = "Объём двигателя";
+                    break;
+                case "id_brand":
+                    columnRename = "Бренд";
+                    break;
+                case "price":
+                    columnRename = "Цена";
+                    break;
+                case "id_condition":
+                    columnRename = "Состояние";
+                    break;
+                case "id_color":
+                    columnRename = "Цвет";
+                    break;
+                case "issue_year":
+                    columnRename = "Год выпуска";
+                    break;
+                case "description":
+                    columnRename = "Описание";
+                    break;
+            }
+
+            TableColumn col = new TableColumn(columnRename);
             col.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
                 public ObservableValue<String> call(TableColumn.CellDataFeatures<ObservableList, String> param) {
                     return new SimpleStringProperty((String) param.getValue().get(j));

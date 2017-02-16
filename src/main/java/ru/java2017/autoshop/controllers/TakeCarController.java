@@ -98,6 +98,7 @@ public class TakeCarController {
     @FXML
     public void initialize() throws SQLException {
 
+        // вывод колонок
         getColumns();
 
         // вывод значений ячеек
@@ -197,6 +198,7 @@ public class TakeCarController {
     }
 
     public void getColumns() throws SQLException {
+
         // вывод названий колонок
         columnArrayList.addAll(zap.columns());
         for (TableColumn list : columnArrayList) {
