@@ -18,7 +18,7 @@ import static ru.java2017.autoshop.objects.MyConstants.URLDB;
 /**
  * Created by UserBoot on 05.02.2017.
  */
-public class Zapolnitel {
+public class CompleteTheTable {
     private ObservableList<ObservableList> data = FXCollections.observableArrayList();
     private Connection connection;
     private Statement statement;
@@ -27,7 +27,7 @@ public class Zapolnitel {
     private int rowsCount = 0;
     private BaseConnect baseConnect;
 
-    public Zapolnitel(String query) throws SQLException {
+    public CompleteTheTable(String query) throws SQLException {
         baseConnect = new BaseConnect(query);
         connection = baseConnect.getConnection();
         statement = baseConnect.getStatement();
@@ -40,41 +40,41 @@ public class Zapolnitel {
 
             // переименование колонок
             String columnRename = resultSet.getMetaData().getColumnName(i + 1);
-            switch (columnRename) {
-                case "id_car":
+            switch (i) {
+                case 0:
                     columnRename = "ID";
                     break;
-                case "id_car_type":
+                case 1:
                     columnRename = "Тип";
                     break;
-                case "id_model":
+                case 2:
                     columnRename = "Модель";
                     break;
-                case "id_transmission":
+                case 3:
                     columnRename = "КПП";
                     break;
-                case "id_privod":
+                case 4:
                     columnRename = "Привод";
                     break;
-                case "capasity":
+                case 5:
                     columnRename = "Объём двигателя";
                     break;
-                case "id_brand":
+                case 6:
                     columnRename = "Бренд";
                     break;
-                case "price":
+                case 7:
                     columnRename = "Цена";
                     break;
-                case "id_condition":
+                case 8:
                     columnRename = "Состояние";
                     break;
-                case "id_color":
+                case 9:
                     columnRename = "Цвет";
                     break;
-                case "issue_year":
+                case 10:
                     columnRename = "Год выпуска";
                     break;
-                case "description":
+                case 11:
                     columnRename = "Описание";
                     break;
             }

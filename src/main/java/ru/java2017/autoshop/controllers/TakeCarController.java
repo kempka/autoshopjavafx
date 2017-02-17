@@ -1,6 +1,5 @@
 package ru.java2017.autoshop.controllers;
 
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,7 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import ru.java2017.autoshop.interfaces.impls.Zapolnitel;
+import ru.java2017.autoshop.interfaces.impls.CompleteTheTable;
 import ru.java2017.autoshop.jdbc.UpdateTable;
 
 import javax.swing.*;
@@ -20,6 +19,8 @@ import java.util.List;
 import java.util.Map;
 
 import static ru.java2017.autoshop.objects.MyConstants.JÜRGEN;
+import static ru.java2017.autoshop.objects.MyRequests.query_All_Car;
+import static ru.java2017.autoshop.objects.MyRequests.query_Join1_Car;
 
 /**
  * Created by UserBoot on 30.01.2017.
@@ -81,8 +82,8 @@ public class TakeCarController {
 
     private ObservableList<ObservableList> data = FXCollections.observableArrayList();
     private List<TableColumn> columnArrayList = new ArrayList<>();
-    private String query = "SELECT * FROM car";
-    private Zapolnitel zap = new Zapolnitel(query);
+    private String query = query_Join1_Car;
+    private CompleteTheTable completeTheTable = new CompleteTheTable(query);
 
     private List<Map> combMA = new ArrayList<>();
     private List<Map> combTC = new ArrayList<>();
@@ -98,62 +99,63 @@ public class TakeCarController {
     @FXML
     public void initialize() throws SQLException {
 
+        System.out.println(query_Join1_Car);
         // вывод колонок
         getColumns();
 
         // вывод значений ячеек
-        data.addAll(zap.rows());
+        data.addAll(completeTheTable.rows());
         tableTakeCar.setItems(data);
 
         labelCount.setText(labelCount.getText());
         labelNumber.setText(String.valueOf((data.size())));
 
-        combMA.addAll(zap.combing("SELECT id, name_en FROM spr_brand"));
-        comboMarkAuto.setItems(zap.comboCircle(combMA));
+        combMA.addAll(completeTheTable.combing("SELECT id, name_en FROM spr_brand"));
+        comboMarkAuto.setItems(completeTheTable.comboCircle(combMA));
         comboMarkAuto.getSelectionModel().select("UAZ");
 
-        combTC.addAll(zap.combing("SELECT id, name_ru FROM spr_cartype"));
-        comboTypeCar.setItems(zap.comboCircle(combTC));
+        combTC.addAll(completeTheTable.combing("SELECT id, name_ru FROM spr_cartype"));
+        comboTypeCar.setItems(completeTheTable.comboCircle(combTC));
         comboTypeCar.getSelectionModel().select(2);
 
-        combMC.addAll(zap.combing("SELECT id, name_ru FROM spr_model"));
-        comboModelCar.setItems(zap.comboCircle(combMC));
+        combMC.addAll(completeTheTable.combing("SELECT id, name_ru FROM spr_model"));
+        comboModelCar.setItems(completeTheTable.comboCircle(combMC));
         comboModelCar.getSelectionModel().select(11);
 
-        combCC.addAll(zap.combing("SELECT id, name_ru FROM spr_color"));
-        comboColorCar.setItems(zap.comboCircle(combCC));
+        combCC.addAll(completeTheTable.combing("SELECT id, name_ru FROM spr_color"));
+        comboColorCar.setItems(completeTheTable.comboCircle(combCC));
 
-        combCP.addAll(zap.combing("SELECT id, name_ru FROM spr_transmission"));
-        comboCPP.setItems(zap.comboCircle(combCP));
+        combCP.addAll(completeTheTable.combing("SELECT id, name_ru FROM spr_transmission"));
+        comboCPP.setItems(completeTheTable.comboCircle(combCP));
         comboCPP.getSelectionModel().select(0);
 
-        combCoC.addAll(zap.combing("SELECT id, name_ru FROM spr_condition"));
-        comboConditCar.setItems(zap.comboCircle(combCoC));
+        combCoC.addAll(completeTheTable.combing("SELECT id, name_ru FROM spr_condition"));
+        comboConditCar.setItems(completeTheTable.comboCircle(combCoC));
         comboConditCar.getSelectionModel().select(0);
 
-        combDC.addAll(zap.combing("SELECT id, name_ru FROM spr_privod"));
-        comboDriveCar.setItems(zap.comboCircle(combDC));
+        combDC.addAll(completeTheTable.combing("SELECT id, name_ru FROM spr_privod"));
+        comboDriveCar.setItems(completeTheTable.comboCircle(combDC));
 
-        zap.finalisation();
+        completeTheTable.finalisation();
     }
 
     @FXML
     public void onClickMethod() {
         try {
             String s = comboMarkAuto.getSelectionModel().getSelectedItem().toString();
-            int id_mark = Integer.valueOf((String) zap.idFromCombo(combMA, s));
+            int id_mark = Integer.valueOf((String) completeTheTable.idFromCombo(combMA, s));
             s = comboTypeCar.getSelectionModel().getSelectedItem().toString();
-            int id_type = Integer.valueOf((String) zap.idFromCombo(combTC, s));
+            int id_type = Integer.valueOf((String) completeTheTable.idFromCombo(combTC, s));
             s = comboModelCar.getSelectionModel().getSelectedItem().toString();
-            int id_model = Integer.valueOf((String) zap.idFromCombo(combMC, s));
+            int id_model = Integer.valueOf((String) completeTheTable.idFromCombo(combMC, s));
             s = comboColorCar.getSelectionModel().getSelectedItem().toString();
-            int id_color = Integer.valueOf((String) zap.idFromCombo(combCC, s));
+            int id_color = Integer.valueOf((String) completeTheTable.idFromCombo(combCC, s));
             s = comboCPP.getSelectionModel().getSelectedItem().toString();
-            int id_cpp = Integer.valueOf((String) zap.idFromCombo(combCP, s));
+            int id_cpp = Integer.valueOf((String) completeTheTable.idFromCombo(combCP, s));
             s = comboConditCar.getSelectionModel().getSelectedItem().toString();
-            int id_cond = Integer.valueOf((String) zap.idFromCombo(combCoC, s));
+            int id_cond = Integer.valueOf((String) completeTheTable.idFromCombo(combCoC, s));
             s = comboDriveCar.getSelectionModel().getSelectedItem().toString();
-            int id_drive = Integer.valueOf((String) zap.idFromCombo(combDC, s));
+            int id_drive = Integer.valueOf((String) completeTheTable.idFromCombo(combDC, s));
 
             double capacity = Double.parseDouble(textVCar.getText());
             String description = textDescript.getText();
@@ -184,7 +186,7 @@ public class TakeCarController {
     }
 
     public void clickReview(ActionEvent actionEvent) throws SQLException {
-        Zapolnitel zap2 = new Zapolnitel(query);
+        CompleteTheTable zap2 = new CompleteTheTable(query);
         data.removeAll(data);
         data.addAll(zap2.rows());
         tableTakeCar.refresh();
@@ -200,7 +202,7 @@ public class TakeCarController {
     public void getColumns() throws SQLException {
 
         // вывод названий колонок
-        columnArrayList.addAll(zap.columns());
+        columnArrayList.addAll(completeTheTable.columns());
         for (TableColumn list : columnArrayList) {
             tableTakeCar.getColumns().add(list);
         }

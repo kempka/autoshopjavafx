@@ -34,6 +34,6 @@
 
 Графический интерфейс собирался в JavaFX.
 Доступ к БД осуществлялся через JDBC-драйвер.
-![Image alt](https://cloud.githubusercontent.com/assets/22368404/23029555/024e360c-f47c-11e6-9809-3e1a69dbcbed.png)
+![Image alt](https://cloud.githubusercontent.com/assets/22368404/23052999/e8e93a52-f4e6-11e6-8fc9-66db1bb7514a.png)
 
 ###Остальное дорабатывается по мере наличия свободного времени.
